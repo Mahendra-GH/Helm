@@ -1,0 +1,25 @@
+---
+namespace: qa
+replicas: 3
+selector:
+  matchLabels:
+    app: nginx
+    
+
+metadata:
+    labels:
+      app: nginx
+image: nginx
+containerport:
+  - containerPort: 80
+resources:
+  requests:
+    memory: 64M
+    cpu: 200m
+  limits:
+    memory: 120M
+    cpu: 500m
+type: LoadBalancer        
+ports:
+    - port: 80
+      targetPort: 80
